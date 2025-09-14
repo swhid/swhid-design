@@ -1,0 +1,76 @@
+/* Unified Navigation Bar Styles for MkDocs Integration */
+
+/* Ensure the topbar appears above MkDocs content */
+.swhid-topbar {
+  position: relative;
+  z-index: 1000;
+  background: var(--brand-primary);
+  color: #fff;
+  width: 100%;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.swhid-topbar .inner {
+  max-width: var(--content-max);
+  margin: 0 auto;
+  padding: var(--space-2) var(--space-4);
+  display: flex;
+  gap: var(--space-4);
+  align-items: center;
+  justify-content: space-between;
+}
+
+.swhid-topbar a {
+  color: #fff;
+  text-decoration: none;
+  font-weight: 600;
+  padding: var(--space-1) var(--space-2);
+  border-radius: var(--space-1);
+  transition: background-color 0.2s ease;
+}
+
+.swhid-topbar a:hover {
+  background-color: rgba(255, 255, 255, 0.1);
+  text-decoration: none;
+}
+
+.swhid-topbar a.active {
+  background-color: rgba(255, 255, 255, 0.2);
+  font-weight: 700;
+}
+
+/* Adjust MkDocs content to account for topbar */
+body {
+  padding-top: 0;
+}
+
+/* Ensure proper spacing between topbar and content */
+.rst-content {
+  margin-top: 0;
+}
+
+/* Hide the default MkDocs header when using unified navbar */
+.rst-header {
+  display: none;
+}
+
+/* Responsive design for mobile */
+@media (max-width: 768px) {
+  .swhid-topbar .inner {
+    flex-direction: column;
+    gap: var(--space-2);
+    padding: var(--space-3) var(--space-4);
+  }
+  
+  .swhid-topbar nav {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--space-2);
+    justify-content: center;
+  }
+  
+  .swhid-topbar a {
+    font-size: 0.9rem;
+    padding: var(--space-1) var(--space-3);
+  }
+}
