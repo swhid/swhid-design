@@ -1,0 +1,105 @@
+/* SWHID Unified Navigation Bar Styles for MkDocs Integration */
+
+/* Ensure the topbar appears above MkDocs content */
+.swhid-topbar {
+  position: relative;
+  z-index: 1000;
+  background: var(--brand-primary, #e20026);
+  color: #fff;
+  width: 100%;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  font-family: var(--font-sans, ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", "Liberation Sans", sans-serif);
+}
+
+.swhid-topbar .inner {
+  max-width: var(--content-max, 1120px);
+  margin: 0 auto;
+  padding: var(--space-2, 0.5rem) var(--space-4, 1rem);
+  display: flex;
+  gap: var(--space-4, 1rem);
+  align-items: center;
+  justify-content: space-between;
+}
+
+.swhid-topbar a {
+  color: #fff;
+  text-decoration: none;
+  font-weight: 600;
+  padding: var(--space-1, 0.25rem) var(--space-2, 0.5rem);
+  border-radius: var(--space-1, 0.25rem);
+  transition: background-color 0.2s ease;
+}
+
+.swhid-topbar a:hover {
+  background-color: rgba(255, 255, 255, 0.1);
+  text-decoration: none;
+}
+
+.swhid-topbar a.active {
+  background-color: rgba(255, 255, 255, 0.2);
+}
+
+/* Ensure the navbar doesn't interfere with MkDocs layout */
+.wy-body-for-nav {
+  padding-top: 0 !important;
+}
+
+/* Adjust the main content area to account for the navbar */
+.wy-grid-for-nav {
+  margin-top: 0 !important;
+}
+
+/* Ensure proper spacing between navbar and content */
+.rst-content {
+  margin-top: var(--space-4, 1rem) !important;
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+  .swhid-topbar .inner {
+    flex-direction: column;
+    gap: var(--space-2, 0.5rem);
+    padding: var(--space-2, 0.5rem);
+  }
+  
+  .swhid-topbar nav {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--space-2, 0.5rem);
+    justify-content: center;
+  }
+  
+  .swhid-topbar a {
+    font-size: 0.9rem;
+    padding: var(--space-1, 0.25rem) var(--space-2, 0.5rem);
+  }
+}
+
+/* Ensure the navbar works well with the ReadTheDocs theme */
+.wy-nav-top {
+  display: none !important; /* Hide the default MkDocs header */
+}
+
+/* Adjust the sidebar to work with our navbar */
+.wy-nav-side {
+  top: 0 !important; /* Remove any top offset */
+}
+
+/* Ensure the content area accounts for the navbar */
+.wy-nav-content-wrap {
+  margin-top: 0 !important;
+}
+
+/* Style the search form placeholder */
+.swhid-topbar .search-form {
+  flex: 1;
+  max-width: 300px;
+  margin: 0 var(--space-4, 1rem);
+}
+
+/* Hide the search form on mobile */
+@media (max-width: 768px) {
+  .swhid-topbar .search-form {
+    display: none;
+  }
+}
