@@ -2,7 +2,9 @@
 <header class="swhid-topbar" role="banner" aria-label="Global">
   <div class="inner">
     <a href="/" aria-label="SWHID home">SWHID</a>
-    <div class="search-form" role="search" aria-label="Site"></div>
+    <div class="search-form" role="search" aria-label="Site">
+      <div id="search"></div>
+    </div>
     <nav aria-label="Global">
       <a href="/specification/">Specification</a>
       <a href="/governance/">Governance</a>
@@ -11,3 +13,57 @@
     </nav>
   </div>
 </header>
+
+<!-- Font Override Script - Force ReadTheDocs fonts after page load -->
+<script>
+(function() {
+  'use strict';
+  
+  function applyFontOverrides() {
+    // Add font override class to body
+    document.body.classList.add('swhid-font-override');
+    
+    // Force font application with maximum specificity
+    const style = document.createElement('style');
+    style.textContent = `
+      body.swhid-font-override,
+      body.swhid-font-override * {
+        font-family: Lato, proxima-nova, "Helvetica Neue", Arial, sans-serif !important;
+      }
+      
+      body.swhid-font-override h1,
+      body.swhid-font-override h2,
+      body.swhid-font-override h3,
+      body.swhid-font-override h4,
+      body.swhid-font-override h5,
+      body.swhid-font-override h6,
+      body.swhid-font-override .site-title,
+      body.swhid-font-override .nav-category,
+      body.swhid-font-override .text-alpha,
+      body.swhid-font-override .text-beta,
+      body.swhid-font-override .text-gamma,
+      body.swhid-font-override .text-delta,
+      body.swhid-font-override .text-epsilon,
+      body.swhid-font-override .text-zeta {
+        font-family: "Roboto Slab", ff-tisa-web-pro, Georgia, Arial, sans-serif !important;
+      }
+    `;
+    document.head.appendChild(style);
+  }
+  
+  // Apply immediately
+  applyFontOverrides();
+  
+  // Apply again after DOM is fully loaded
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', applyFontOverrides);
+  }
+  
+  // Apply again after window load (in case other scripts override)
+  window.addEventListener('load', applyFontOverrides);
+  
+  // Apply again after a short delay to catch any late-loading CSS
+  setTimeout(applyFontOverrides, 100);
+  setTimeout(applyFontOverrides, 500);
+})();
+</script>

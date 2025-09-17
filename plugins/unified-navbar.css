@@ -1,5 +1,188 @@
 /* SWHID Unified Navigation Bar Styles for MkDocs Integration */
 
+/* Font Unification - Use ReadTheDocs fonts across all sites */
+@font-face {
+  font-family: 'Lato';
+  src: url('https://fonts.gstatic.com/s/lato/v24/S6uyw4BMUTPHjx4wXg.woff2') format('woff2'),
+       url('https://fonts.gstatic.com/s/lato/v24/S6uyw4BMUTPHjx4wXg.woff') format('woff');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Lato';
+  src: url('https://fonts.gstatic.com/s/lato/v24/S6u9w4BMUTPHh6UVSwiw.woff2') format('woff2'),
+       url('https://fonts.gstatic.com/s/lato/v24/S6u9w4BMUTPHh6UVSwiw.woff') format('woff');
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Roboto Slab';
+  src: url('https://fonts.gstatic.com/s/robotoslab/v34/BngbUXZYTXPIvIBgJJSb6s3BzlRRfKOFbvjojIWWaG5iddG-1A.woff2') format('woff2'),
+       url('https://fonts.gstatic.com/s/robotoslab/v34/BngbUXZYTXPIvIBgJJSb6s3BzlRRfKOFbvjojIWWaG5iddG-1A.woff') format('woff');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Roboto Slab';
+  src: url('https://fonts.gstatic.com/s/robotoslab/v34/BngbUXZYTXPIvIBgJJSb6s3BzlRRfKOFbvjojIWWaG5iddG-1A.woff2') format('woff2'),
+       url('https://fonts.gstatic.com/s/robotoslab/v34/BngbUXZYTXPIvIBgJJSb6s3BzlRRfKOFbvjojIWWaG5iddG-1A.woff') format('woff');
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+
+/* Override JTD font variables at root level - Maximum specificity */
+:root {
+  --font-family-sans: Lato, proxima-nova, "Helvetica Neue", Arial, sans-serif !important;
+  --font-family-serif: "Roboto Slab", ff-tisa-web-pro, Georgia, Arial, sans-serif !important;
+  --font-family-mono: "SFMono-Regular", menlo, consolas, monospace !important;
+}
+
+/* Apply ReadTheDocs fonts to main site (Jekyll) - Maximum specificity override */
+html body, 
+html .main-content, 
+html .site-nav, 
+html .side-bar, 
+html .aux-nav, 
+html .breadcrumb-nav,
+html .nav-list,
+html .nav-list-item,
+html .nav-list-link,
+html .search-input,
+html .search-results,
+html .search-results-list,
+html .search-result,
+html .search-result-title,
+html .search-result-excerpt,
+html .search-result-doc,
+html .search-result-section,
+html .search-result-rel-url,
+html .search-result-previews,
+html .search-result-preview,
+html .search-result-highlight,
+html .search-no-result,
+html .table-wrapper,
+html table,
+html th,
+html td,
+html .btn,
+html .btn-outline,
+html .btn-primary,
+html .btn-purple,
+html .btn-blue,
+html .btn-green,
+html .btn-reset,
+html .label,
+html .label-blue,
+html .label-green,
+html .label-purple,
+html .label-red,
+html .label-yellow,
+html .text-small,
+html .text-mono,
+html .text-left,
+html .text-center,
+html .text-right,
+html .text-grey-dk-000,
+html .text-grey-dk-100,
+html .text-grey-dk-200,
+html .text-grey-dk-250,
+html .text-grey-dk-300,
+html .text-grey-lt-000,
+html .text-grey-lt-100,
+html .text-grey-lt-200,
+html .text-grey-lt-300,
+html .text-blue-000,
+html .text-blue-100,
+html .text-blue-200,
+html .text-blue-300,
+html .text-green-000,
+html .text-green-100,
+html .text-green-200,
+html .text-green-300,
+html .text-purple-000,
+html .text-purple-100,
+html .text-purple-200,
+html .text-purple-300,
+html .text-yellow-000,
+html .text-yellow-100,
+html .text-yellow-200,
+html .text-yellow-300,
+html .text-red-000,
+html .text-red-100,
+html .text-red-200,
+html .text-red-300 {
+  font-family: Lato, proxima-nova, "Helvetica Neue", Arial, sans-serif !important;
+}
+
+/* Apply ReadTheDocs heading fonts to main site - Maximum specificity override */
+html h1, 
+html h2, 
+html h3, 
+html h4, 
+html h5, 
+html h6, 
+html .site-title, 
+html .nav-category, 
+html .text-alpha, 
+html .text-beta, 
+html .text-gamma, 
+html .text-delta, 
+html .text-epsilon, 
+html .text-zeta,
+html .main-content h1,
+html .main-content h2,
+html .main-content h3,
+html .main-content h4,
+html .main-content h5,
+html .main-content h6,
+html .main-content #toctitle,
+html .post-title,
+html .news-title,
+html .swhid-banner h2,
+html .footer-left h3,
+html .footer-section h4 {
+  font-family: "Roboto Slab", ff-tisa-web-pro, Georgia, Arial, sans-serif !important;
+}
+
+/* Apply ReadTheDocs fonts to subsites (MkDocs) - ensure consistency */
+.wy-nav-content, .rst-content, .wy-menu-vertical, .wy-nav-side {
+  font-family: Lato, proxima-nova, "Helvetica Neue", Arial, sans-serif !important;
+}
+
+/* Force font application with JavaScript - Maximum override */
+.swhid-font-override {
+  font-family: Lato, proxima-nova, "Helvetica Neue", Arial, sans-serif !important;
+}
+
+.swhid-font-override h1,
+.swhid-font-override h2,
+.swhid-font-override h3,
+.swhid-font-override h4,
+.swhid-font-override h5,
+.swhid-font-override h6,
+.swhid-font-override .site-title,
+.swhid-font-override .nav-category,
+.swhid-font-override .text-alpha,
+.swhid-font-override .text-beta,
+.swhid-font-override .text-gamma,
+.swhid-font-override .text-delta,
+.swhid-font-override .text-epsilon,
+.swhid-font-override .text-zeta {
+  font-family: "Roboto Slab", ff-tisa-web-pro, Georgia, Arial, sans-serif !important;
+}
+
+.wy-nav-content h1, .wy-nav-content h2, .wy-nav-content h3, .wy-nav-content h4, .wy-nav-content h5, .wy-nav-content h6,
+.rst-content h1, .rst-content h2, .rst-content h3, .rst-content h4, .rst-content h5, .rst-content h6 {
+  font-family: "Roboto Slab", ff-tisa-web-pro, Georgia, Arial, sans-serif !important;
+}
+
 /* Ensure the topbar appears above MkDocs content and matches content width */
 .swhid-topbar {
   position: relative;
@@ -126,6 +309,13 @@
   display: none !important; /* Hide the default MkDocs header */
 }
 
+/* Ensure our navbar is visible and positioned correctly */
+.swhid-topbar {
+  display: block !important;
+  visibility: visible !important;
+  opacity: 1 !important;
+}
+
 /* Adjust the sidebar to work with our navbar */
 .wy-nav-side {
   top: 0 !important; /* Remove any top offset */
@@ -141,6 +331,118 @@
   flex: 1;
   max-width: 300px;
   margin: 0 var(--space-4, 1rem);
+  position: relative;
+}
+
+/* Fix Pagefind search results positioning */
+.pagefind-ui {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  right: 0;
+  z-index: 1000;
+  background: white;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  max-height: 70vh;
+  overflow-y: auto;
+  margin-top: 4px;
+  pointer-events: auto;
+}
+
+/* Ensure search results are hidden by default */
+.pagefind-ui.pagefind-ui__hidden {
+  display: none !important;
+}
+
+/* Style the search input within the header */
+.pagefind-ui__search-input {
+  background: white !important;
+  color: #333 !important;
+  border: 1px solid #ddd !important;
+}
+
+.pagefind-ui__search-input::placeholder {
+  color: #999 !important;
+}
+
+/* Ensure search results don't expand the header */
+.pagefind-ui__drawer {
+  position: relative;
+  background: white;
+  padding: 0;
+  margin: 0;
+}
+
+.pagefind-ui__results-area {
+  background: white;
+  padding: 0;
+  margin: 0;
+}
+
+.pagefind-ui__results {
+  background: white;
+  padding: 0;
+  margin: 0;
+}
+
+.pagefind-ui__result {
+  background: white;
+  color: #333;
+  border-bottom: 1px solid #eee;
+  padding: 12px 16px;
+}
+
+.pagefind-ui__result:last-child {
+  border-bottom: none;
+}
+
+.pagefind-ui__result-title {
+  color: #333;
+  font-weight: 600;
+  margin: 0 0 4px 0;
+}
+
+.pagefind-ui__result-title .pagefind-ui__result-link {
+  color: #333;
+  text-decoration: none;
+}
+
+.pagefind-ui__result-title .pagefind-ui__result-link:hover {
+  color: var(--brand-primary, #e20026);
+  text-decoration: underline;
+}
+
+.pagefind-ui__result-excerpt {
+  color: #666;
+  font-size: 14px;
+  line-height: 1.4;
+  margin: 0;
+}
+
+/* Ensure the search form container doesn't expand */
+.swhid-topbar .search-form {
+  overflow: visible;
+  position: relative;
+}
+
+/* Remove the backdrop that was blocking clicks */
+
+/* Hide only the MkDocs search form in sidebar, not the entire search area */
+.wy-side-nav-search form,
+#rtd-search-form,
+.wy-side-nav-search .wy-form {
+  display: none !important;
+}
+
+/* Keep the site title and navigation visible */
+.wy-side-nav-search {
+  display: block !important;
+}
+
+.wy-side-nav-search a {
+  display: block !important;
 }
 
 /* Hide the search form on mobile */
