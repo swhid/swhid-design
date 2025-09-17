@@ -1,6 +1,6 @@
 /* SWHID Unified Navigation Bar Styles for MkDocs Integration */
 
-/* Ensure the topbar appears above MkDocs content */
+/* Ensure the topbar appears above MkDocs content and matches content width */
 .swhid-topbar {
   position: relative;
   z-index: 1000;
@@ -11,14 +11,58 @@
   font-family: var(--font-sans, ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", "Liberation Sans", sans-serif);
 }
 
+/* CSS Variables for consistent sizing */
+:root {
+  --rtd-content-max: 800px;      /* same max-width as .wy-nav-content */
+  --topbar-h: 52px;              /* navbar height */
+}
+
+/* Make the wrap a positioning context (safe) */
+.wy-nav-content-wrap { 
+  position: relative; 
+}
+
+/* Unified navbar - constrained to content width */
+.swhid-topbar {
+  /* Important: don't use left/right:0 here */
+  position: sticky;              /* stays at top as you scroll */
+  top: 0;
+  z-index: 1100;
+
+  /* constrain to the actual content width and align with content area */
+  width: min(100%, var(--rtd-content-max));
+  margin-left: 0;                /* align with left edge of content area */
+  margin-right: auto;            /* let it extend to content area right edge */
+
+  /* align inner padding with RTD content padding */
+  box-sizing: border-box;
+  padding-inline: 1.618em;       /* same as .wy-nav-content */
+}
+
+/* Keep anchors from hiding under the sticky bar */
+.wy-nav-content {
+  scroll-margin-top: calc(var(--topbar-h) + 8px);
+  padding-top: var(--topbar-h);  /* add if the bar overlays content */
+}
+
+/* Mobile: when content collapses, just go full width */
+@media (max-width: 768px) {
+  :root { 
+    --rtd-content-max: 100%; 
+  }
+  .swhid-topbar {
+    width: 100%;
+    margin: 0;
+    padding-inline: 1em;
+  }
+}
+
 .swhid-topbar .inner {
-  max-width: var(--content-max, 1120px);
-  margin: 0 auto;
-  padding: var(--space-2, 0.5rem) var(--space-4, 1rem);
   display: flex;
   gap: var(--space-4, 1rem);
   align-items: center;
   justify-content: space-between;
+  padding: var(--space-2, 0.5rem) 0;
 }
 
 .swhid-topbar a {
@@ -47,12 +91,14 @@
 /* Adjust the main content area to account for the navbar */
 .wy-grid-for-nav {
   margin-top: 0 !important;
+  position: relative; /* Ensure the grid is positioned for absolute navbar */
 }
 
 /* Ensure proper spacing between navbar and content */
 .rst-content {
   margin-top: var(--space-4, 1rem) !important;
 }
+
 
 /* Responsive design */
 @media (max-width: 768px) {
